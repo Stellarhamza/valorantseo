@@ -1,0 +1,43 @@
+---
+import type { SiteImage } from '../data/images';
+import { resolveImageSrc, resolveImageSrcSet } from '../data/images';
+
+interface Props {
+  image: SiteImage;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  sizes?: string;
+  aspect?: 'video' | 'cover' | 'wide' | 'square';
+  showCaption?: boolean;
+}
+
+const {
+  image,
+  class: className = '',
+  loading = 'lazy',
+  sizes = '(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 540px',
+  aspect = 'video',
+  showCaption = false,
+} = Astro.props;
+
+const src = resolveImageSrc(image);
+const srcset = resolveImageSrcSet(image);
+---
+
+<figure class={`game-image game-image--${aspect} ${className}`.trim()}>
+  <div class="game-image-frame">
+    <img
+      src={src}
+      srcset={srcset}
+      sizes={srcset ? sizes : undefined}
+      alt={image.alt}
+      loading={loading}
+      decoding="async"
+      width="889"
+      height="500"
+    />
+  </div>
+  {(showCaption && image.caption) && (
+    <figcaption class="game-image-caption">{image.caption}</figcaption>
+  )}
+</figure>

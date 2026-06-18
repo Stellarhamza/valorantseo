@@ -1,0 +1,46 @@
+---
+import { SITE_STATS } from '../data/seo';
+import { HERO_IMAGE, COVER_IMAGE } from '../data/images';
+import { resolveImageSrc } from '../data/images';
+import GameImage from './GameImage.astro';
+---
+
+<header class="hero">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <p class="badge">valorantcheats.org — Vanguard Patch 9.04 — Updated June 2026</p>
+      <h1>Best <span>Valorant Cheats</span> 2026 — Undetected &amp; Updated Daily</h1>
+      <p>
+        Impossible flicks. Perfect reads. Opponents who never seem surprised — every Valorant player
+        has seen it. That is why <strong>Valorant cheats</strong> from valorantcheats.org exist: one
+        undetected loader with aimbot, ESP, wallhack, triggerbot, radar, recoil control, and more.
+        Premium software, updated within 2 hours of every patch, trusted by 12,000+ players.
+      </p>
+      <div class="hero-stats">
+        {SITE_STATS.map((stat) => (
+          <div class="hero-stat">
+            <span class="hero-stat-value">{stat.value}</span>
+            <span class="hero-stat-label">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+      <div class="hero-cta">
+        <a href="#setup" class="btn btn-primary">Download Valorant Cheats — Free Trial</a>
+        <a href="#cheats" class="btn btn-secondary">See All Cheats</a>
+      </div>
+    </div>
+
+    <div class="hero-media">
+      <GameImage image={HERO_IMAGE} loading="eager" aspect="wide" showCaption />
+      <img
+        class="hero-cover"
+        src={resolveImageSrc(COVER_IMAGE)}
+        alt={COVER_IMAGE.alt}
+        width="90"
+        height="128"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+  </div>
+</header>

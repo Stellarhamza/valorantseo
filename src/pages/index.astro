@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SiteNav from '../components/SiteNav.astro';
+import GuideContent from '../components/GuideContent.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { SITE } from '../data/seo';
+---
+
+<BaseLayout>
+  <div class="wrap">
+    <Hero />
+    <SiteNav />
+    <main id="main-content">
+      <article itemscope itemtype="https://schema.org/WebPage">
+        <meta itemprop="name" content={SITE.title} />
+        <meta itemprop="description" content={SITE.description} />
+        <meta itemprop="dateModified" content={SITE.modified} />
+        <GuideContent />
+        <CtaBanner />
+      </article>
+    </main>
+    <SiteFooter />
+  </div>
+</BaseLayout>

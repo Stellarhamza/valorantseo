@@ -1,0 +1,293 @@
+---
+import { FAQ_ITEMS, CHEAT_MODULES, ESP_FEATURES, PRICING } from '../data/seo';
+import { CHEAT_MODULE_IMAGES, SECTION_IMAGES, resolveImageSrc } from '../data/images';
+import { MODULE_ICONS } from '../data/icons';
+import EditorialGuide from './EditorialGuide.astro';
+import ImageGallery from './ImageGallery.astro';
+import GameImage from './GameImage.astro';
+import Icon from './Icon.astro';
+---
+<section class="guide-section" id="overview">
+  <h2>Valorant Cheats — Everything You Need to Win</h2>
+  <p>
+    <strong>Valorant cheats</strong> from <strong>valorantcheats.org</strong> give you a full competitive
+    toolkit in one download — aimbot, ESP, wallhack, triggerbot, radar, recoil control, skin changer,
+    and HWID spoofer. Built exclusively for Valorant, updated within hours of every Riot patch,
+    and protected by kernel-level Vanguard bypass technology.
+  </p>
+  <p>
+    Whether you are searching for <strong>valorant cheats download</strong>, <strong>best valorant cheats</strong>,
+    or <strong>undetected valorant cheats</strong> — this is the site. Our exact-match domain,
+    dedicated loader, and 12,000+ user base make ValorantCheats.org the most trusted name in
+    Valorant hacks.
+  </p>
+
+  <div class="section-media">
+    <GameImage image={SECTION_IMAGES.overview} aspect="wide" showCaption />
+  </div>
+
+  <div class="card">
+    <div class="card-title">Why ValorantCheats.org Is the Best Valorant Cheats Provider</div>
+    <div class="pillars">
+      <div class="pillar"><div class="num" style="color:#7c6af5">01</div><div class="label" style="font-size:15px;font-weight:600;color:#e8e8f0;margin-bottom:.3rem">Valorant-Only Focus</div><div class="label">Not a generic multi-game provider. Every update, every signature, every patch is built specifically for Valorant and Vanguard.</div></div>
+      <div class="pillar"><div class="num" style="color:#22c55e">02</div><div class="label" style="font-size:15px;font-weight:600;color:#e8e8f0;margin-bottom:.3rem">7 Cheats, 1 Loader</div><div class="label">Aimbot, ESP, wallhack, triggerbot, radar, recoil, skins, and HWID spoofer — all included. No extra purchases, no scattered downloads.</div></div>
+      <div class="pillar"><div class="num" style="color:#3b82f6">03</div><div class="label" style="font-size:15px;font-weight:600;color:#e8e8f0;margin-bottom:.3rem">Fastest Patches</div><div class="label">Valorant cheats updated within 2 hours of every Riot patch. Discord alerts, one-click loader, refund if down over 24 hours.</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Valorant Cheats Pricing</div>
+    <table>
+      <thead>
+        <tr><th>Plan</th><th>Price</th><th>Includes</th></tr>
+      </thead>
+      <tbody>
+        {PRICING.map((tier) => (
+          <tr>
+            <td><strong>{tier.plan}</strong></td>
+            <td>{tier.price}{tier.plan !== 'Free Trial' && <span class="text-muted"> / {tier.period}</span>}</td>
+            <td>{tier.includes}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<ImageGallery />
+
+<EditorialGuide />
+
+<section class="guide-section" id="cheats">
+  <h2>Valorant Cheats Suite — All 7 Modules Included</h2>
+  <p>
+    Every <strong>Valorant cheat</strong> below is part of your subscription. Enable only what you need —
+    info-mode cheats for safe ranked climbing, or the full rage package for unrated domination.
+  </p>
+
+  <div class="feature-grid feature-grid--media">
+    {CHEAT_MODULES.map((mod) => (
+      <div class="feature-card feature-card--media" id={mod.id}>
+        <div class="feature-card-media">
+          <img
+            src={CHEAT_MODULE_IMAGES[mod.id] ? resolveImageSrc(CHEAT_MODULE_IMAGES[mod.id]) : undefined}
+            alt={CHEAT_MODULE_IMAGES[mod.id]?.alt ?? mod.name}
+            loading="lazy"
+            decoding="async"
+            width="889"
+            height="500"
+          />
+          <span class="feature-card-icon" aria-hidden="true">
+            <Icon name={MODULE_ICONS[mod.id]} size={18} />
+          </span>
+        </div>
+        <div class="feature-card-body">
+          <div class="feature-card-header">
+            <h3>{mod.name}</h3>
+            <span class="pill pill-purple">{mod.tag}</span>
+          </div>
+          <p>{mod.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="card" style="margin-top:1.5rem">
+    <div class="card-title">ESP &amp; Wallhack — Included Valorant Cheat Features</div>
+    <p style="margin-bottom:1rem;color:var(--text2)">
+      ESP is the most-used module in our Valorant cheats suite. Every feature below is included at no extra cost.
+    </p>
+    <div class="feature-grid">
+      {ESP_FEATURES.map((f) => (
+        <div class="feature-card">
+          <h3>{f.name}</h3>
+          <p>{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:1.5rem">
+    <div class="card-title">Valorant Cheats — Risk &amp; Use Guide</div>
+    <table>
+      <thead>
+        <tr><th>Cheat Module</th><th>Detection Risk</th><th>Ranked Safe</th><th>Best For</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>ESP &amp; Wallhack</strong></td><td><span class="pill pill-green">Very Low</span></td><td>Yes</td><td>Map awareness, info plays</td></tr>
+        <tr><td><strong>Radar Hack</strong></td><td><span class="pill pill-green">Very Low</span></td><td>Yes</td><td>Flank detection, rotates</td></tr>
+        <tr><td><strong>Triggerbot</strong></td><td><span class="pill pill-yellow">Low</span></td><td>With delay</td><td>Operator holds, angles</td></tr>
+        <tr><td><strong>Recoil Control</strong></td><td><span class="pill pill-yellow">Low</span></td><td>Yes</td><td>Spray transfers</td></tr>
+        <tr><td><strong>Skin Changer</strong></td><td><span class="pill pill-green">Zero</span></td><td>Yes</td><td>Cosmetics only</td></tr>
+        <tr><td><strong>Aimbot</strong></td><td><span class="pill pill-red">High</span></td><td>Risky</td><td>Fast rank boost, alts</td></tr>
+        <tr><td><strong>HWID Spoofer</strong></td><td><span class="pill pill-green">N/A</span></td><td>Always on</td><td>Ban protection</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="guide-section" id="how-it-works">
+  <h2>How Valorant Cheats Work</h2>
+  <p>
+    All modules in the <strong>Valorant cheats</strong> loader share one kernel-protected pipeline
+    designed to bypass Riot Vanguard at every layer.
+  </p>
+
+  <div class="section-media section-media--compact">
+    <GameImage image={SECTION_IMAGES.howItWorks} aspect="wide" />
+  </div>
+
+  <div class="card">
+    <div class="card-title">From Download to In-Game — 4 Steps</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Kernel Driver Loads</h4><p>The Valorant cheats loader installs a ring-0 driver below Vanguard's scan level. HWID spoofer activates automatically to shield your hardware ID.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Game Memory Read</h4><p>Player positions, health, weapons, abilities, and spike state are read at 144+ Hz. Every Valorant cheat module pulls from this single data stream.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Module Activation</h4><p>Toggle aimbot, ESP, wallhack, triggerbot, or radar independently via hotkeys. Mix modules for your playstyle — info-only for ranked, full suite for fun.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Stealth Overlay</h4><p>DirectX rendering sits above Valorant but outside Vanguard's screenshot scope. Death cam replays stay clean, especially with info-mode Valorant cheats enabled.</p></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Performance — Full Valorant Cheats Suite Active</div>
+    <table>
+      <thead>
+        <tr><th>Metric</th><th>Vanilla</th><th>All Cheats On</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>FPS drop</strong></td><td>—</td><td><span class="pill pill-green">&lt;5 FPS</span></td></tr>
+        <tr><td><strong>Input lag</strong></td><td>—</td><td><span class="pill pill-green">0ms added</span></td></tr>
+        <tr><td><strong>CPU usage</strong></td><td>—</td><td><span class="pill pill-green">&lt;3%</span></td></tr>
+        <tr><td><strong>VRAM</strong></td><td>—</td><td><span class="pill pill-green">&lt;80 MB</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="guide-section" id="safety">
+  <h2>Undetected Valorant Cheats — Vanguard Bypass 2026</h2>
+  <p>
+    Riot Vanguard runs at kernel level — the toughest anti-cheat in FPS gaming. Our
+    <strong>undetected Valorant cheats</strong> are engineered to evade every scan type Vanguard uses.
+  </p>
+
+  <div class="section-media section-media--compact">
+    <GameImage image={SECTION_IMAGES.safety} aspect="wide" />
+  </div>
+
+  <div class="card">
+    <div class="card-title">Vanguard Protection — Every Valorant Cheat Covered</div>
+    <div class="two-col">
+      <div>
+        <h3 style="color:#4ade80">Bypass Layers</h3>
+        <ul class="checklist">
+          <li>Ring-0 kernel driver below Vanguard</li>
+          <li>Memory integrity evasion</li>
+          <li>Overlay screenshot protection</li>
+          <li>Process and module hiding</li>
+          <li>Daily driver signature rotation</li>
+          <li>HVCI / hypervisor compatible</li>
+          <li>Humanized aimbot behavior curves</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color:#fbbf24">Support &amp; Updates</h3>
+        <ul class="checklist">
+          <li>Auto-patch within 2h of Valorant updates</li>
+          <li>Real-time ban wave monitoring</li>
+          <li>HWID spoofer free on every plan</li>
+          <li>One-click loader — zero manual work</li>
+          <li>24/7 Discord + live status page</li>
+          <li>Refund if Valorant cheats down &gt;24h</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Undetected Rate — Last 90 Days (2,847 Users)</div>
+    <div class="meter-row"><span class="meter-label">Info-mode Valorant cheats (ESP + Radar)</span><div class="meter-bar"><div class="meter-fill" style="width:97%;background:#22c55e"></div></div><span class="meter-val">97.2%</span></div>
+    <div class="meter-row"><span class="meter-label">Legit-mode (ESP + Triggerbot)</span><div class="meter-bar"><div class="meter-fill" style="width:94%;background:#22c55e"></div></div><span class="meter-val">94.6%</span></div>
+    <div class="meter-row"><span class="meter-label">Full Valorant cheats suite</span><div class="meter-bar"><div class="meter-fill" style="width:89%;background:#eab308"></div></div><span class="meter-val">89.1%</span></div>
+    <div class="meter-row"><span class="meter-label">Avg. undetected runtime</span><div class="meter-bar"><div class="meter-fill" style="width:94%;background:#7c6af5"></div></div><span class="meter-val">47 days</span></div>
+    <p style="margin-top:.75rem;font-size:12px;color:#6868a0">No Valorant cheats are 100% safe. Use info-mode in ranked, keep HWID spoofer on, never stream with overlays visible.</p>
+  </div>
+</section>
+
+<section class="guide-section" id="setup">
+  <h2>Download Valorant Cheats — 5-Minute Setup</h2>
+  <p>
+    Get the full <strong>Valorant cheats</strong> loader from valorantcheats.org and inject in under 5 minutes.
+    Windows 10 and 11 supported — all modules included.
+  </p>
+
+  <div class="section-media section-media--compact">
+    <GameImage image={SECTION_IMAGES.setup} aspect="wide" />
+  </div>
+
+  <div class="card">
+    <div class="card-title">How to Install Valorant Cheats</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Download from valorantcheats.org</h4><p>Click the free trial button. Create your account and download the Valorant cheats loader. Add the folder to Windows Defender exclusions.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Run as Administrator</h4><p>Right-click → Run as Administrator. Kernel driver and HWID spoofer install automatically. Restart if prompted.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Launch Valorant</h4><p>Open Valorant through Riot Client. Wait for the main menu — do not inject during Vanguard's startup scan.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Inject &amp; Configure</h4><p>Click Inject. Press INSERT for the cheat menu. Enable your Valorant cheats modules and set hotkeys for in-game toggling.</p></div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-body"><h4>Queue &amp; Climb</h4><p>Start with info-mode Valorant cheats in ranked. Experiment with aimbot in deathmatch or on alt accounts. Climb with full map awareness.</p></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">System Requirements</div>
+    <table>
+      <thead>
+        <tr><th>Requirement</th><th>Minimum</th><th>Recommended</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>OS</strong></td><td>Windows 10 21H2</td><td>Windows 11 23H2</td></tr>
+        <tr><td><strong>RAM</strong></td><td>8 GB</td><td>16 GB</td></tr>
+        <tr><td><strong>GPU</strong></td><td>GTX 1060</td><td>RTX 3060+</td></tr>
+        <tr><td><strong>Valorant</strong></td><td>Latest patch</td><td>Latest patch</td></tr>
+        <tr><td><strong>Secure Boot / TPM 2.0</strong></td><td>Enabled</td><td>Enabled</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="guide-section" id="compare">
+  <h2>Valorant Cheats — Which Setup Is Right for You?</h2>
+  <p>
+    Pick the right <strong>Valorant cheats</strong> combination for your goal — safe ranked climbing
+    or maximum unrated dominance.
+  </p>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr><th>Goal</th><th>Valorant Cheats to Enable</th><th>Risk</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Safe ranked climb</strong></td><td>ESP + Radar</td><td><span class="pill pill-green">Very Low</span></td><td>2–3 ranks/month, natural gameplay</td></tr>
+        <tr><td><strong>Legit competitive edge</strong></td><td>ESP + Triggerbot + Recoil</td><td><span class="pill pill-yellow">Low</span></td><td>Faster climbs, still believable</td></tr>
+        <tr><td><strong>Aggressive ranked</strong></td><td>ESP + Soft Aimbot</td><td><span class="pill pill-yellow">Medium</span></td><td>1–2 ranks/week on alt accounts</td></tr>
+        <tr><td><strong>Unrated / deathmatch</strong></td><td>Full Valorant cheats suite</td><td><span class="pill pill-red">High</span></td><td>Maximum fun, zero rank risk</td></tr>
+        <tr><td><strong>Skins only</strong></td><td>Skin Changer</td><td><span class="pill pill-green">Zero</span></td><td>Every skin, no gameplay change</td></tr>
+      </tbody>
+    </table>
+    <div class="info-box" style="margin-top:1rem">Recommended starting setup: <strong>ESP + Radar</strong> only. Add triggerbot at 80–120ms delay for Operator. Save aimbot for alt accounts or unrated.</div>
+  </div>
+</section>
+
+<section class="guide-section" id="faq">
+  <h2>Valorant Cheats FAQ</h2>
+  <p>Answers to the most searched questions about <strong>Valorant cheats</strong>, downloads, safety, and pricing.</p>
+
+  <div class="card">
+    <div class="faq-list">
+      {FAQ_ITEMS.map((item) => (
+        <div class="faq-item">
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

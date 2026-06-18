@@ -1,0 +1,43 @@
+---
+import { NAV_SECTIONS } from '../data/seo';
+import SiteLogo from './SiteLogo.astro';
+---
+
+<nav class="site-nav" aria-label="Guide sections">
+  <SiteLogo />
+  <div class="site-nav-links">
+    {NAV_SECTIONS.map((section) => (
+      <a href={`#${section.id}`} data-section={section.id}>
+        {section.label}
+      </a>
+    ))}
+  </div>
+</nav>
+
+<script>
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.site-nav-links a[data-section]');
+  const sections = [...navLinks]
+    .map((link) => document.getElementById(link.dataset.section ?? ''))
+    .filter((section): section is HTMLElement => section !== null);
+
+  const setActive = (id: string) => {
+    navLinks.forEach((link) => {
+      link.setAttribute('aria-current', link.dataset.section === id ? 'true' : 'false');
+    });
+  };
+
+  if ('IntersectionObserver' in window && sections.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target.id) setActive(visible.target.id);
+      },
+      { rootMargin: '-40% 0px -50% 0px', threshold: [0, 0.25, 0.5, 1] },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    setActive(sections[0].id);
+  }
+</script>

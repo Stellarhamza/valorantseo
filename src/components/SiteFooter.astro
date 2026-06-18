@@ -1,0 +1,41 @@
+---
+import { SITE, NAV_SECTIONS } from '../data/seo';
+import { IMAGE_ATTRIBUTION } from '../lib/valorant-media';
+---
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="footer-logo" href="/" aria-label="ValorantCheats.org home">
+        <img src="/logo.svg" alt="" width="200" height="34" decoding="async" />
+      </a>
+      <p>The #1 destination for undetected Valorant cheats — aimbot, ESP, wallhack, triggerbot, and more.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Page sections">
+      <span class="footer-nav-title">On this page</span>
+      <ul>
+        {NAV_SECTIONS.map((s) => (
+          <li><a href={`#${s.id}`}>{s.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <nav class="footer-nav" aria-label="Valorant cheats topics">
+      <span class="footer-nav-title">Valorant Cheats</span>
+      <ul>
+        <li><a href="#guide">Valorant Cheats Guide</a></li>
+        <li><a href="#cheats">Valorant ESP</a></li>
+        <li><a href="#cheats">Valorant Wallhack</a></li>
+        <li><a href="#safety">Undetected Cheats</a></li>
+        <li><a href="#setup">Download Cheats</a></li>
+      </ul>
+    </nav>
+  </div>
+  <p class="footer-copy">
+    &copy; 2026 ValorantCheats.org — Best Valorant Cheats &amp; Hacks —
+    Last updated <time datetime={SITE.modified}>June 18, 2026</time>
+  </p>
+  <p class="footer-attribution">
+    Game imagery © <a href={IMAGE_ATTRIBUTION.riotUrl} rel="noopener noreferrer" target="_blank">Riot Games</a>
+    · UI icons from <a href={IMAGE_ATTRIBUTION.lucideUrl} rel="noopener noreferrer" target="_blank">Lucide</a> (ISC)
+  </p>
+</footer>

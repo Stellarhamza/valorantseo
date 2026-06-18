@@ -1,0 +1,35 @@
+---
+import { GALLERY_IMAGES, resolveImageSrc } from '../data/images';
+import { IMAGE_ATTRIBUTION } from '../lib/valorant-media';
+---
+
+<section class="guide-section media-gallery" id="gallery" aria-label="Valorant gameplay gallery">
+  <h2>Valorant Gameplay Gallery</h2>
+  <p>
+    Official Valorant screenshots and key art from
+    <a href={IMAGE_ATTRIBUTION.riotUrl} rel="noopener noreferrer" target="_blank">Riot Games</a>
+    — sourced from playvalorant.com.
+  </p>
+
+  <div class="gallery-grid">
+    {GALLERY_IMAGES.map((image) => (
+      <figure class="gallery-item">
+        <div class="gallery-item-frame">
+          <img
+            src={resolveImageSrc(image)}
+            alt={image.alt}
+            loading="lazy"
+            decoding="async"
+            width="569"
+            height="320"
+          />
+        </div>
+      </figure>
+    ))}
+  </div>
+
+  <p class="gallery-credit">
+    Game imagery © <a href={IMAGE_ATTRIBUTION.riotUrl} rel="noopener noreferrer" target="_blank">Riot Games</a>
+    · Icons by <a href={IMAGE_ATTRIBUTION.lucideUrl} rel="noopener noreferrer" target="_blank">Lucide</a> (ISC)
+  </p>
+</section>
