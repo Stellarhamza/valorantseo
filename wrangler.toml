@@ -1,0 +1,4 @@
+# Cloudflare Pages — https://developers.cloudflare.com/pages/functions/wrangler-configuration/
+name = "seo-once-more"
+compatibility_date = "2024-06-19"
+pages_build_output_dir = "./dist"

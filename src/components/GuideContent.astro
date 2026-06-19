@@ -1,5 +1,5 @@
 ---
-import { FAQ_ITEMS, CHEAT_MODULES, ESP_FEATURES, PRICING } from '../data/seo';
+import { FAQ_ITEMS, CHEAT_MODULES, DETAILED_FEATURE_SECTIONS, PRICING } from '../data/seo';
 import { CHEAT_MODULE_IMAGES, SECTION_IMAGES, resolveImageSrc } from '../data/images';
 import { MODULE_ICONS } from '../data/icons';
 import EditorialGuide from './EditorialGuide.astro';
@@ -93,18 +93,24 @@ import Icon from './Icon.astro';
   </div>
 
   <div class="card" style="margin-top:1.5rem">
-    <div class="card-title">ESP &amp; Wallhack — Included Valorant Cheat Features</div>
+    <div class="card-title">ValorantCheats.org — Full Loader Settings</div>
     <p style="margin-bottom:1rem;color:var(--text2)">
-      ESP is the most-used module in our Valorant cheats suite. Every feature below is included at no extra cost.
+      Every toggle below is included in the valorantcheats.org loader at no extra cost. Configure each module
+      independently — legit ranked presets or full customization for unrated.
     </p>
-    <div class="feature-grid">
-      {ESP_FEATURES.map((f) => (
-        <div class="feature-card">
-          <h3>{f.name}</h3>
-          <p>{f.desc}</p>
+    {DETAILED_FEATURE_SECTIONS.map((section) => (
+      <div class="feature-category" id={section.id}>
+        <h3 class="feature-category-title">{section.title}</h3>
+        <div class="feature-grid">
+          {section.features.map((f) => (
+            <div class="feature-card">
+              <h3>{f.name}</h3>
+              <p>{f.desc}</p>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      </div>
+    ))}
   </div>
 
   <div class="card" style="margin-top:1.5rem">
