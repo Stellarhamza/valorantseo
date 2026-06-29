@@ -1,5 +1,4 @@
 # Cloudflare Pages — https://developers.cloudflare.com/pages/functions/wrangler-configuration/
-# Do not set pages_build_output_dir here: Git builds need the dashboard/API build command
-# (npm run build) to run before dist exists. Direct uploads pass dist via deploy.yml.
 name = "valorantseo"
 compatibility_date = "2024-06-19"
+pages_build_output_dir = "./dist"
