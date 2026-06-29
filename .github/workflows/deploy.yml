@@ -21,9 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Stop Cloudflare Git from uploading raw source (no index.html). We build
-      # in CI and upload dist/ via wrangler instead.
-      - name: Configure Cloudflare Pages project
+      - name: Configure Cloudflare Pages build settings
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -38,11 +36,6 @@ jobs:
                 "build_command": "npm run build",
                 "destination_dir": "dist",
                 "root_dir": ""
-              },
-              "source": {
-                "config": {
-                  "deployments_enabled": false
-                }
               }
             }'
 
