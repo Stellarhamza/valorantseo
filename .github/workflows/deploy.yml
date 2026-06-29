@@ -38,5 +38,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=seo-once-more
+          # --branch must match the Pages project's production branch or the
+          # deploy lands on preview only (custom domain + *.pages.dev stay empty).
+          command: pages deploy dist --project-name=seo-once-more --branch=main
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}

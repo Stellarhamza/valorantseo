@@ -1,4 +1,6 @@
 # Cloudflare Pages — https://developers.cloudflare.com/pages/functions/wrangler-configuration/
+# Direct-upload deploys must pass --branch=main (see .github/workflows/deploy.yml)
+# so assets reach production and valorantcheats.org serves the built site.
 name = "seo-once-more"
 compatibility_date = "2024-06-19"
 pages_build_output_dir = "./dist"
